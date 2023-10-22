@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>STOCK</th>
+        <th>PRICE</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for produit in produits %}
+
+                <tr>
+                    <th>{{ produit.id }}</th>
+                    <td>{{ produit.name }}</td>
+                    <td>{{ produit.description }}</td>
+                    <td>{{ produit.stock }}</td>
+                    <td>{{ produit.price }}</td>
+                    <td><a href="{{ path('admin_edit', {'id': produit.id}) }}">Éditer</a></td>
+                </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
+

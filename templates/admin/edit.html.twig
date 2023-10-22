@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'inc/nav.html.twig' %}
+    {{ form_start(productForm) }}
+    {{ form_row(productForm.name) }}
+    {{ form_row(productForm.description) }}
+    {{ form_row(productForm.stock) }}
+    {{ form_row(productForm.price) }}
+    <button type="submit">Envoyé</button>
+    {{ form_end(productForm) }}
+{% endblock %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+
