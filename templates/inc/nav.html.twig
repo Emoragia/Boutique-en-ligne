@@ -7,6 +7,8 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 {% if app.user %}
+                <a href="">mon panier</a>
+                <a href="">mon profil</a>
                 <a href="{{ path('app_logout') }}">Se déconnecter ({{ app.user.firstname }})</a>
                 {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('admin_dashboard') }}">Adminstration</a>

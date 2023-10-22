@@ -17,6 +17,16 @@ class AdminController extends AbstractController
 {
 
     #[Route('/dashboard', name: 'dashboard')]
+    public function dashboard(ProduitsRepository $produitsRepository): Response
+    {
+        $product = $produitsRepository->findAll();
+
+        return $this->render('admin/dashboard.html.twig', [
+            'produits' => $product,
+        ]);
+    }
+
+    #[Route('/produit/create', name: 'create')]
     public function admin(Request $request, EntityManagerInterface $entityManager): Response
     {
 
@@ -33,7 +43,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_produit', ['id' => $product->getId()]);
         }
 
-        return $this->render('main/admin.html.twig', [
+        return $this->render('admin/admin.html.twig', [
             'productForm' => $productForm->createView()
         ]);
     }
@@ -43,7 +53,7 @@ class AdminController extends AbstractController
     {
         $product = $produitsRepository->findAll();
 
-        return $this->render('main/produitsAdmin.html.twig', [
+        return $this->render('admin/produitsAdmin.html.twig', [
             'produits' => $product,
         ]);
     }
@@ -65,7 +75,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_produit', ['id' => $product->getId()]);
         }
 
-        return $this->render('main/edit.html.twig', [
+        return $this->render('admin/edit.html.twig', [
             'productForm' => $productForm->createView()
         ]);
     }

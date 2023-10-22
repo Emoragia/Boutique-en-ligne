@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'inc/nav.html.twig' %}
+    <a href="{{ path('admin_create') }}">Crée un produit</a>
+    <a href="{{ path('admin_produit') }}">Les produits</a>
+{% endblock %}
+
