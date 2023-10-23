@@ -3,13 +3,27 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+    <section class="Inscription_Formulaire">
+        <h1>Inscription</h1>
+            <div class="Inscription_FormulaireDIV">
+                {{ form_errors(registrationForm) }}
 
-    {{ form_errors(registrationForm) }}
+                {{ form_start(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_widget(registrationForm) }}
+                {{ form_row(registrationForm.firstname) }}
+                {{ form_row(registrationForm.lastname) }}
+                {{ form_row(registrationForm.username) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
 
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
-    {{ form_end(registrationForm) }}
+
+                {{ form_widget(registrationForm) }}
+                <button type="submit" class="btn btn-primary">S'inscrire</button>
+                <a style="margin-left: 18%;" href="{{ path('app_login') }}">Connexion</a>
+                {{ form_end(registrationForm) }}
+            </div>
+    </section>
+    <div class="bg_formulaire">
+        <img src="{{ asset('img/background/backgroundregister.jpg') }}" alt="backgroundregister">
+    </div>
 {% endblock %}
