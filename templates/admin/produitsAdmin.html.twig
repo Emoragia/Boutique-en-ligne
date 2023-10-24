@@ -13,6 +13,8 @@
         <th>DESCRIPTION</th>
         <th>STOCK</th>
         <th>PRICE</th>
+        <th>GENRE</th>
+        <th>IMAGE</th>
     </tr>
     </thead>
     <tbody>
@@ -24,6 +26,8 @@
                     <td>{{ produit.description }}</td>
                     <td>{{ produit.stock }}</td>
                     <td>{{ produit.price }}</td>
+                    <td>{{ produit.genre }}</td>
+                    <td>{{ produit.image }}</td>
                     <td><a href="{{ path('admin_edit', {'id': produit.id}) }}">Éditer</a></td>
                 </tr>
         {% endfor %}

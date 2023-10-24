@@ -4,7 +4,7 @@
     align-items: center;
     background-color: #86b7feed;
     width: 30%;
-    height: 666px;
+    height: 557px;
     border-radius: 10px;
     margin-left: 35%;
     position: absolute;
@@ -13,9 +13,45 @@
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+.Inscription_FormulaireDIV{
+    line-height: 6px;
+}
+
 .bg_formulaire img{
     position: absolute;
     z-index: -1;
     width: -webkit-fill-available;
     height: -webkit-fill-available;
+}
+
+.body_form{
+    display: flex;
+    justify-content: center;
+}
+
+.base_login_form{
+    background-color: #86b7feed;
+    width: 30%;
+    height: 315px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin-top: 10%;
+    border: 3px solid darkblue;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.login_form{
+    margin-top: 10%;
+    width: 70%;
+}
+
+.body_form img{
+    position:absolute;
+    z-index: -1;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
+.btn_login{
+    margin-top: 5%;
 }

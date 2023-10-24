@@ -27,7 +27,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/produit/create', name: 'create')]
-    public function admin(Request $request, EntityManagerInterface $entityManager): Response
+    public function admin(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
 
         $product = new Produits();
@@ -35,10 +35,21 @@ class AdminController extends AbstractController
 
         $productForm->handleRequest($request);
 
-        if($productForm->isSubmitted()){
+        if($productForm->isSubmitted() && $productForm->isValid()){
+            $file = $productForm->get('image')->getData();
+
+            if ($file) {
+                $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+
+                // A gérer avec une exception, cf. la doc
+                $file->move($this->getParameter('upload_champ_entite_dir'), $newFilename);
+            }
+
+            $product->setImage($newFilename);
             $entityManager->persist($product);
             $entityManager->flush();
-
             $this->addFlash('success', 'Produits ajoutée !');
             return $this->redirectToRoute('admin_produit', ['id' => $product->getId()]);
         }
