@@ -22,21 +22,21 @@
                         Catégorie Manga
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Aventure</a></li>
-                        <li><a class="dropdown-item" href="#">Comédie</a></li>
-                        <li><a class="dropdown-item" href="#">Drame</a></li>
-                        <li><a class="dropdown-item" href="#">Fantasy</a></li>
-                        <li><a class="dropdown-item" href="#">Science-Fiction</a></li>
-                        <li><a class="dropdown-item" href="#">Horreur</a></li>
-                        <li><a class="dropdown-item" href="#">Tranche de vie</a></li>
-                        <li><a class="dropdown-item" href="#">Romance</a></li>
-                        <li><a class="dropdown-item" href="#">Mystère</a></li>
-                        <li><a class="dropdown-item" href="#">Surnaturel</a></li>
-                        <li><a class="dropdown-item" href="#">Psychologique</a></li>
-                        <li><a class="dropdown-item" href="#">Sport</a></li>
-                        <li><a class="dropdown-item" href="#">École</a></li>
-                        <li><a class="dropdown-item" href="#">Super Pouvoirs</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_action') }}">Action</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_aventure') }}">Aventure</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_comedie') }}">Comédie</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_drame') }}">Drame</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_fantasy') }}">Fantasy</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Science-Fiction') }}">Science-Fiction</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Horreur') }}">Horreur</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_TrancheDeVie') }}">Tranche de vie</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Romance') }}">Romance</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Mystere') }}">Mystère</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Surnaturel') }}">Surnaturel</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Psychologique') }}">Psychologique</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Sport') }}">Sport</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_Ecole') }}">École</a></li>
+                        <li><a class="dropdown-item" href="{{ path('genre_SuperPouvoirs') }}">Super Pouvoirs</a></li>
                     </ul>
                 </li>
                 {% if app.user %}

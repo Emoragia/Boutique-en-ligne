@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% include 'inc/nav.html.twig' %}
+    <div style="display: flex;flex-direction: row">
+        {% for product in products %}
+            <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="{{ asset('css/img/manga/' ~ produit.image) }}" alt="{{ produit.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ produit.name }}</h5>
+                    <p class="card-text">{{ produit.description }}</p>
+                    <p class="card-text">{{ produit.price }} €</p>
+                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+

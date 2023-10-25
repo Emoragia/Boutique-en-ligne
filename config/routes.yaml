@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+genre_horreur:
+    path: /horreur
+    controller: App\Controller\GenreController::horreurAction
+
+genre_romance:
+    path: /romance
+    controller: App\Controller\GenreController::romanceAction
