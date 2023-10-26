@@ -1,37 +1,50 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-
+    Liste des produits
 {% endblock %}
 
 {% block body %}
-    <table class="table table-striped">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>DESCRIPTION</th>
-        <th>STOCK</th>
-        <th>PRICE</th>
-        <th>GENRE</th>
-        <th>IMAGE</th>
-    </tr>
-    </thead>
-    <tbody>
-        {% for produit in produits %}
+    {% include 'inc/nav.html.twig' %}
 
-                <tr>
-                    <th>{{ produit.id }}</th>
-                    <td>{{ produit.name }}</td>
-                    <td>{{ produit.description }}</td>
-                    <td>{{ produit.stock }}</td>
-                    <td>{{ produit.price }}</td>
-                    <td>{{ produit.genre }}</td>
-                    <td>{{ produit.image }}</td>
-                    <td><a href="{{ path('admin_edit', {'id': produit.id}) }}">Éditer</a></td>
-                </tr>
-        {% endfor %}
-    </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            {% include "inc/adminnav.html.twig" %}
+            <main class="col-9 border border-light bg-white p-2">
+                <h1>Liste des produits</h1>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>AUTEUR</th>
+                        <th>STOCK</th>
+                        <th>PRICE</th>
+                        <th>GENRE</th>
+                        <th>IMAGE</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for produit in produits %}
+
+                        <tr>
+                            <th>{{ produit.id }}</th>
+                            <td>{{ produit.name }}</td>
+                            <td>{{ produit.description }}</td>
+                            <td>{{ produit.stock }}</td>
+                            <td>{{ produit.price }}€</td>
+                            <td>{{ produit.genre }}</td>
+                            <td><img src="{{ asset('css/img/manga/' ~ produit.image ) }}" alt="{{ produit.name }}" class="img-thumbnail"></td>
+                            <td><a href="{{ path('admin_edit', {'id': produit.id}) }}" class="btn btn-primary">Éditer</a></td>
+                            <td><a href="{{ path('admin_delete', {'id': produit.id}) }}" class="btn btn-danger">Supprimer</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+
 {% endblock %}
 

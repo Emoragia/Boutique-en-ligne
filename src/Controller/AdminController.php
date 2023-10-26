@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Produits;
 use App\Form\ProduitType;
 use App\Repository\ProduitsRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -89,5 +90,23 @@ class AdminController extends AbstractController
         return $this->render('admin/edit.html.twig', [
             'productForm' => $productForm->createView()
         ]);
+    }
+
+    #[Route('/produit/suppression/{id}', name: 'delete')]
+    public function produitsDelete(Produits $product, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($product);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Produit supprimé !');
+        return $this->redirectToRoute('admin_produit');
+    }
+
+    #[Route('/utilisateurs', name: 'users')]
+    public function utilisateurs(UserRepository $userRepository): Response
+    {
+        $users = $userRepository->findBy([], ['firstname' => 'asc']);
+
+        return $this->render('admin/utilisateurs.html.twig', compact('users'));
     }
 }

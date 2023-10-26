@@ -1,12 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-
+    Admnistration
 {% endblock %}
 
 {% block body %}
     {% include 'inc/nav.html.twig' %}
-    <a href="{{ path('admin_create') }}">Crée un produit</a>
-    <a href="{{ path('admin_produit') }}">Les produits</a>
+
+    <div class="container">
+        <div class="row">
+            {% include "inc/adminnav.html.twig" %}
+            <main class="col-9 border border-light bg-white p-2">
+                <h1>Administration</h1>
+
+            </main>
+        </div>
+    </div>
+
 {% endblock %}
 

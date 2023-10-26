@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    {% include 'inc/nav.html.twig' %}
-    {{ form_start(productForm) }}
-    {{ form_row(productForm.name) }}
-    {{ form_row(productForm.description) }}
-    {{ form_row(productForm.stock) }}
-    {{ form_row(productForm.price) }}
-    {{ form_row(productForm.genre) }}
-    {{ form_row(productForm.image) }}
-    <button type="submit">Envoyé</button>
-    {{ form_end(productForm) }}
+{% block title %}
+    Admnistration
 {% endblock %}
 
-{% block title %}
-    Admin
+{% block body %}
+    {% include 'inc/nav.html.twig' %}
+
+    <div class="container">
+        <div class="row">
+            {% include "inc/adminnav.html.twig" %}
+            <main class="col-9 border border-light bg-white p-2">
+                <h1>Administration</h1>
+                {{ form_start(productForm) }}
+                {{ form_row(productForm.name) }}
+                {{ form_row(productForm.description) }}
+                {{ form_row(productForm.stock) }}
+                {{ form_row(productForm.price) }}
+                {{ form_row(productForm.genre) }}
+                {{ form_row(productForm.image) }}
+                <button type="submit" class="btn btn-primary">Envoyé</button>
+                {{ form_end(productForm) }}
+            </main>
+        </div>
+    </div>
+
 {% endblock %}
 
 
