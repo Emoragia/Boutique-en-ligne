@@ -55,3 +55,58 @@
 .btn_login{
     margin-top: 5%;
 }
+
+.custom-card-icon-buy {
+    height: 60px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.card_main_1{
+    width: 14rem;
+    border: 1px solid rgba(49, 47, 47, 0.24);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.card_main_1:hover{
+    transform: scale(1.03);
+}
+
+.end-0{
+    right: -1px!important;
+}
+
+.bottom-0 {
+    bottom: -1px!important;
+}
+
+.card-body_second{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card_a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+@media (min-width: 992px){
+    .nav_end{
+        display: flex!important;
+        flex-basis: auto;
+        justify-content: flex-end;
+        margin-right: 5%;
+    }
+}
+
+.logo_market img{
+
+}

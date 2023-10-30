@@ -15,12 +15,11 @@
         {% endblock %}
     </head>
     <body>
-        {% for message in app.flashes('success') %}
-            {# Cet exemple utilise le système d'alertes du framework Bootstrap #}
-            <div class="alert alert-success">
-                {{ message }}
-            </div>
-        {% endfor %}
+    {% for flashMessage in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
         {% block body %}
 
         {% endblock %}

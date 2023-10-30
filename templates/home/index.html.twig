@@ -4,17 +4,19 @@
 
 {% block body %}
     {% include 'inc/nav.html.twig' %}
-    <div style="display: flex;flex-direction: row">
+    <div class="card-body_second">
     {% for produit in produits %}
-    <div class="card" style="width: 14rem;">
-        <img class="card-img-top" src="{{ asset('css/img/manga/' ~ produit.image) }}" alt="{{ produit.name }}">
-        <div class="card-body">
-            <h5 class="card-title">{{ produit.name }}</h5>
-            <p class="card-text">{{ produit.description }}</p>
-            <p class="card-text">{{ produit.price }} €</p>
-            <a href="#" class="btn btn-primary">Ajouter au panier</a>
-        </div>
-    </div>
+        <a href="{{ path('cart_add', {'id': produit.id}) }}" class="card_a" >
+            <div class="card m-2 card_main_1">
+                <img class="card-img-top" style="height: 320px;" src="{{ asset('css/img/manga/' ~ produit.image) }}" alt="{{ produit.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ produit.name }}</h5>
+                    <p class="card-text">{{ produit.description }}</p>
+                    <p class="card-text">{{ produit.price }} €</p>
+                    <a href="{{ path('cart_add', {'id': produit.id}) }}" class="btn btn-primary position-absolute bottom-0 end-0 custom-card-icon-buy"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </a>
     {% endfor %}
     </div>
 {% endblock %}

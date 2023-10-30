@@ -19,7 +19,12 @@
                 {{ form_row(productForm.price) }}
                 {{ form_row(productForm.genre) }}
                 {{ form_row(productForm.image) }}
-                <button type="submit" class="btn btn-primary">Envoyé</button>
+                {% if productForm.vars.value.image is not null %}
+                    <img src="{{ asset('css/img/manga/' ~ productForm.vars.value.image) }}" alt="Image du produit" class="img-thumbnail" style="max-width: 200px;"/>
+                {% endif %}
+                <div class="my-3">
+                    <button type="submit" class="btn btn-primary">Envoyé</button>
+                </div>
                 {{ form_end(productForm) }}
             </main>
         </div>

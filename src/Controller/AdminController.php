@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\OrdersDetails;
 use App\Entity\Produits;
 use App\Form\ProduitType;
+use App\Repository\OrdersRepository;
 use App\Repository\ProduitsRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -80,6 +82,25 @@ class AdminController extends AbstractController
         $productForm->handleRequest($request);
 
         if($productForm->isSubmitted() && $productForm->isValid()){
+
+            $newImage = $productForm->get('image')->getData();
+
+            // Vérifiez si une nouvelle image a été téléchargée
+            if ($newImage) {
+                $newImageFileName = md5(uniqid()).'.'.$newImage->guessExtension();
+
+                $newImage->move(
+                    $this->getParameter('upload_champ_entite_dir'), // Remplacez 'upload_directory' par le répertoire de destination réel
+                    $newImageFileName
+                );
+
+                // Mettez à jour le champ image de votre entité avec le nouveau chemin du fichier image
+                $product->setImage($newImageFileName);
+
+                // Si vous souhaitez supprimer l'ancienne image, faites-le ici en utilisant unlink() ou en supprimant le fichier du stockage approprié
+                // Exemple : unlink($this->getParameter('upload_directory').'/'.$product->getImage());
+            }
+
             $entityManager->persist($product);
             $entityManager->flush();
 
@@ -95,9 +116,17 @@ class AdminController extends AbstractController
     #[Route('/produit/suppression/{id}', name: 'delete')]
     public function produitsDelete(Produits $product, EntityManagerInterface $entityManager): Response
     {
-        $entityManager->remove($product);
-        $entityManager->flush();
+        if ($product) {
+            $orderDetailsRepository = $entityManager->getRepository(OrdersDetails::class);
+            $orderDetails = $orderDetailsRepository->findBy(['products' => $product]);
 
+            foreach ($orderDetails as $orderDetail) {
+                $entityManager->remove($orderDetail);
+            }
+
+            $entityManager->remove($product);
+            $entityManager->flush();
+        }
         $this->addFlash('success', 'Produit supprimé !');
         return $this->redirectToRoute('admin_produit');
     }
@@ -108,5 +137,15 @@ class AdminController extends AbstractController
         $users = $userRepository->findBy([], ['firstname' => 'asc']);
 
         return $this->render('admin/utilisateurs.html.twig', compact('users'));
+    }
+
+    #[Route('/commandes', name: 'commandes')]
+    public function ListCommandes(OrdersRepository $ordersRepository): Response
+    {
+        $order = $ordersRepository->findAll();
+
+        return $this->render('admin/OrderAdmin.html.twig', [
+            'Order' => $order,
+        ]);
     }
 }

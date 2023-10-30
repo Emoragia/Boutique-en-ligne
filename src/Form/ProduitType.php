@@ -21,7 +21,9 @@ class ProduitType extends AbstractType
             ->add('stock')
             ->add('price', NumberType::class)
             ->add('image', FileType::class,
-                [ 'mapped' => false, // désactive le mappage avec le champ dans l'entité (qui attend une chaîne de caractère)
+                [
+                    'required' => false,
+                    'mapped' => false, // désactive le mappage avec le champ dans l'entité (qui attend une chaîne de caractère)
                     // ajout des contraintes :
                     'constraints' => [
                         new Image(
