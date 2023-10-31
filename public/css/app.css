@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 .Inscription_Formulaire{
     display: flex;
     flex-direction: column;
@@ -15,6 +17,16 @@
 
 .Inscription_FormulaireDIV{
     line-height: 6px;
+}
+
+.form_login_main{
+    width: 40%!important;
+    margin-left: 32%;
+    line-height: 210%;
+}
+
+.form_email{
+    margin-bottom: 3%;
 }
 
 .bg_formulaire img{
@@ -107,6 +119,60 @@
     }
 }
 
-.logo_market img{
 
+.card_price{
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg_pink {
+    --bs-bg-opacity: 1;
+    background-color: #132043;
+    border-bottom: 2px solid black;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.titleh1{
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button-31 {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 31%;
+}
+
+.button-31:hover,
+.button-31:focus {
+    opacity: .75;
+}
+
+.texth1login{
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
 }

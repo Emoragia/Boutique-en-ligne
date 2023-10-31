@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
     {% include 'inc/nav.html.twig' %}
+    <div class="titleh1">
+        <h1>DERNIERS MANGAS EN DATE</h1>
+    </div>
     <div class="card-body_second">
     {% for produit in produits %}
         <a href="{{ path('cart_add', {'id': produit.id}) }}" class="card_a" >
@@ -12,7 +15,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ produit.name }}</h5>
                     <p class="card-text">{{ produit.description }}</p>
-                    <p class="card-text">{{ produit.price }} €</p>
+                    <p class="card-text card_price">{{ produit.price | number_format(2, '.', ',') }} €</p>
                     <a href="{{ path('cart_add', {'id': produit.id}) }}" class="btn btn-primary position-absolute bottom-0 end-0 custom-card-icon-buy"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </div>
