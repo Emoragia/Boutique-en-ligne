@@ -126,10 +126,8 @@
 }
 
 .bg_pink {
-    --bs-bg-opacity: 1;
-    background-color: #132043;
-    border-bottom: 2px solid black;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.72);
+
 }
 
 .titleh1{

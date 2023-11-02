@@ -12,6 +12,8 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_main')]
     public function index(ProduitsRepository $produitsRepository): Response
     {
+
+
         $product = $produitsRepository->findAll();
         $user = $this->getUser();
         return $this->render('home/index.html.twig', [

@@ -4,6 +4,13 @@
 
 {% block body %}
     {% include 'inc/nav.html.twig' %}
+        <form class="form-inline" method="get" action="{{ path('product_search') }}">
+            <div class="d-flex w-50 mx-auto mt-3">
+                <input class="form-control mr-sm-2" type="search" name="q" placeholder="Rechercher des produits" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+            </div>
+        </form>
+
     <div class="titleh1">
         <h1>DERNIERS MANGAS EN DATE</h1>
     </div>
