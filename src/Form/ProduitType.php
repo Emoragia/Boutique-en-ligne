@@ -30,7 +30,7 @@ class ProduitType extends AbstractType
                             [
                                 "mimeTypesMessage" => "Le format de fichier n'est pas autorisé.",
                                 // Seuls les types jpeg et png sont autorisés :
-                                "mimeTypes" => ['image/jpeg', 'image/png']
+                                "mimeTypes" => ['image/jpeg', 'image/png', 'image/webp']
                             ]
                         )
                     ]
