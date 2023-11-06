@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil !{% endblock %}
+
+{% block body %}
+
+    <div class="container m-auto">
+        <div class="row justify-content-center align-items-center m-4">
+            <div class="card shadow bg-light bg-gradient p-5 w-75">
+                <h2 class="card-title text-center">{{ app.user.username}}</h2>
+                <div class="card-body p-5">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="p-4">
+                            {{ form_start(profilForm) }}
+                            {{ form_row(profilForm.username) }}
+                            {{ form_row(profilForm.firstname) }}
+                            {{ form_row(profilForm.lastname) }}
+                        </div>
+                        <div class="p-4">
+                            {{ form_row(profilForm.email) }}
+                            {{ form_row(profilForm.password) }}
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button id="btn-title-profil" type="submit" class="btn btn-primary btn-lg">Enregistrer</button>
+                        {{ form_end(profilForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

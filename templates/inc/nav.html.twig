@@ -45,7 +45,7 @@
                         Bonjour, {{ app.user.username }}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Modifier mon profil</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_profil_modifier') }}">Modifier mon profil</a></li>
                         <li><a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a></li>
                         {% if is_granted("ROLE_ADMIN") %}
                         <li><a class="dropdown-item" href="{{ path('admin_dashboard') }}">Administration</a></li>
