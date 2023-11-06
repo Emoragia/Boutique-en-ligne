@@ -28,11 +28,11 @@ class ProfilController extends AbstractController
         $profilForm->handleRequest($request);
         if($profilForm->isSubmitted() && $profilForm->isValid()){
 
-            $motPasseClair = $profilForm['motPasseClair']->getData();
+            $motPasseClair = $profilForm['password']->getData();
             //SI l'utilsateur.ice a saisi un nouveau de mot de passe, on le vérifie et on modifie l'attribut mot de passe s'il est valide.
             if(!is_null($motPasseClair) && !empty(trim($motPasseClair)))
             {
-                $user->setMotPasse(
+                $user->setPassword(
                     $hasher->hashPassword($user, $motPasseClair)
                 );
             }
