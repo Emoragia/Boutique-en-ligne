@@ -15,19 +15,21 @@
         {% endblock %}
     </head>
     <body>
-    {% for flashMessage in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
-    {% if app.user and app.user.isVerified == false %}
-        <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div class="alert-message">
-                <strong>Votre compte n'es pas activé</strong>, renvoyer le lien d'activation
+        {% for flashMessage in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
             </div>
-        </div>
-    {% endif %}
+        {% endfor %}
+        {% if app.user and app.user.isVerified == false %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    <strong>Votre compte n'es pas activé</strong>, renvoyer le lien d'activation
+                </div>
+            </div>
+        {% endif %}
+        {% include "_partials/_flash.html.twig" %}
+
         {% block body %}
 
         {% endblock %}
