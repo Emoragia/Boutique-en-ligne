@@ -95,6 +95,7 @@ class RegistrationController extends AbstractController
                 $em->flush($user);
                 $this->addFlash('success', 'Votre adresse mail est actuellement verifiée !');
                 return $this->redirectToRoute('app_main');
+
             }
         }
         // Ici un problème se pose dans le token
