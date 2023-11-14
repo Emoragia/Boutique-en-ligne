@@ -15,7 +15,7 @@
         <h1>DERNIERS MANGAS EN DATE</h1>
     </div>
     <div class="card-body_second">
-    {% for produit in produits %}
+    {% for produit in pagination %}
         <a href="{{ path('cart_add', {'id': produit.id}) }}" class="card_a" >
             <div class="card m-2 card_main_1">
                 <img class="card-img-top" style="height: 320px;" src="{{ asset('css/img/manga/' ~ produit.image) }}" alt="{{ produit.name }}">
@@ -28,6 +28,20 @@
             </div>
         </a>
     {% endfor %}
+    </div>
+    <div class="pagination d-flex justify-content-center">
+        {{ knp_pagination_render(
+            pagination,
+            '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+            {
+                'queryParam1': 'param1 value',
+                'queryParam2': 'param2 value'
+            },
+            {
+                'viewParam1': 'param1 value',
+                'viewParam2': 'param2 value'
+            },
+        ) }}
     </div>
 {% endblock %}
 

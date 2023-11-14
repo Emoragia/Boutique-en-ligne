@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GenreController extends AbstractController
 {
+
     #[Route('/action', name: 'genre_action')]
     public function Action(ProduitsRepository $produitsRepository): Response
     {
